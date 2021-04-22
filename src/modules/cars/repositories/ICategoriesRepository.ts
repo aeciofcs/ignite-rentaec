@@ -1,4 +1,4 @@
-import { Category } from "../entities/category";
+import { Category } from "../Entities/category";
 
 // DTO => Data Transfer Object
 interface ICreateCategoryDTO {
