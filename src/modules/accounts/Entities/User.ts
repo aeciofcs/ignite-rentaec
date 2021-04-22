@@ -9,8 +9,9 @@ class User {
     @Column()
     name: string;
 
+    /*
     @Column()
-    username: string;
+    username: string; */
 
     @Column()
     email: string;
