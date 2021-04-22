@@ -26,7 +26,7 @@
                                         "type": "string"
                                     }
                                 },
-                                "exemple": {
+                                "example": {
                                     "name": "SUV",
                                     "description": "VEÍCULO UTILITÁRIO ESPORTIVO"
                                 }
@@ -125,6 +125,36 @@
                     }
                 }
             }
+        },
+
+        "/users": {
+            "post":{
+                "tags":["Usuários"],
+                "summary": "Cria um Usuário",
+                "description": "Criação de usuário para realizar login na aplicação",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/User"                                
+                            },
+                            "example": {
+                                "name": "Aecio",
+                                "username": "aeciofcs",
+                                "email": "aeciofcs@gmail.com",
+                                "password": "***",
+                                "driver_license": "1234567",
+                                "isAdmin": false
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201":{
+                        "description": "Criado."
+                    }
+                }
+            }
         }
     },
 
@@ -137,6 +167,31 @@
                 },
                 "description": {
                     "type":"string"
+                }
+            }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"                    
+                },
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string",
+                    "format": "email"
+                },
+                "password": {
+                    "type": "string",
+                    "format": "password"
+                },
+                "driver_license": {
+                    "type": "string"
+                },
+                "isAdmin": {
+                    "type": "boolean"
                 }
             }
         }
