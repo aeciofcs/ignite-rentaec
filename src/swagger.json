@@ -1,0 +1,146 @@
+{
+    "op
+node_modules
+enapi": "3.0.0",
+    "info":{
+        "title": "Documentação - RENTAEC",
+        "description": "API para alugueis de carros",
+        "version": "1.0.0",
+        "contact":{
+            "email": "aeciofcs@gmail.com"
+        }
+    },
+    "paths": {
+        "/categories": {
+            "post": {
+                "tags": ["Categoria"],
+                "summary": "Criar uma categoria",
+                "description": "Criar uma nova categoria",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": { "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    }
+                                },
+                                "exemple": {
+                                    "name": "SUV",
+                                    "description": "VEÍCULO UTILITÁRIO ESPORTIVO"
+                                }
+                            }
+
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Criado"
+                    },
+                    "500": {
+                        "description": "Categoria já existe."
+                    }
+                }
+            },
+            "get": {
+                "tags": ["Categoria"],
+                "summay": "Lista todas as Categorias.",
+                "description": "Listagem de todas as categorias cadastradas.",
+                "responses": {
+                    "200": {
+                        "description": "Sucesso.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+
+        "/categories/import":{
+            "post": {
+                "tags": ["Categoria"],
+                "summary": "Upload de Categoria.",
+                "description": "Realiza upload de um arquivo contendo categorias para ser importado dentro do APP.",
+                "requestBody":{
+                    "content":{
+                        "multipart/form-data": {
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "file":{
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "Criado."
+                    }
+                }
+            }
+        },
+
+        "/specifications": {
+            "post": {
+                "tags":["Especificação"],
+                "summary":"Cria um Especificação",
+                "description":"Criar uma nova Especificação",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "$ref": "#/definitions/Specification"
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "201":{
+                        "description": "Criado."
+                    },
+                    "500":{
+                        "description":"Specification already exists."
+                    }
+                }
+            }
+        }
+    },
+
+    "definitions": {
+        "Specification": {
+            "type":"object",
+            "properties":{
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type":"string"
+                }
+            }
+        }
+    }
+}
