@@ -1,12 +1,6 @@
-// Adicionar coluna avatar na tabela de users
-//  => yarn typeorm migration:create -n AlterUserAddAvatar
-// Refatorar usuário com coluna avatar
-// Configuração upload multer
-// Criar regra de negócio do upload
-// Criar controller
-
 import { inject, injectable } from "tsyringe";
 
+import { deleteFile } from "../../../../utils/file";
 import { IUserRepository } from "../../Repositories/IUserRepository";
 
 interface IRequest {
@@ -24,6 +18,9 @@ class UpdateUserAvatarUseCase {
     async execute({ user_id, avatar_file }: IRequest): Promise<void> {
         const user = await this.usersRepository.findById(user_id);
 
+        if (user.avatar) {
+            await deleteFile(`./tmp/avatar/${user.avatar}`);
+        }
         user.avatar = avatar_file;
 
         await this.usersRepository.create(user);
