@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
-import { Category } from "@modules/cars/Entities/category";
+import { Category } from "@modules/cars/Infra/TypeORM/Entities/category";
 import { ICategoriesRepository } from "@modules/cars/repositories/ICategoriesRepository";
 
 @injectable()
