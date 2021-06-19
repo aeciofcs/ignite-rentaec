@@ -6,8 +6,8 @@
     "password": "ignite",
     "database": "rentaec",    
     "entities": ["./src/modules/**/Entities/*.ts"],
-    "migrations": ["./src/database/migrations/*.ts"],
+    "migrations": ["./src/shared/Infra/TypeORM/Migrations/*.ts"],
     "cli": {
-        "migrationsDir": "./src/database/migrations"
+        "migrationsDir": "./src/shared/Infra/TypeORM/Migrations"
     }
 }
