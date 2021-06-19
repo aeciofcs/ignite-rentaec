@@ -1,8 +1,8 @@
-import { Category } from "../../Infra/TypeORM/Entities/category";
+import { Category } from "@modules/cars/Infra/TypeORM/Entities/category";
 import {
     ICategoriesRepository,
     ICreateCategoryDTO,
-} from "../ICategoriesRepository";
+} from "@modules/cars/repositories/ICategoriesRepository";
 
 class CategoriesRepositoryInMemory implements ICategoriesRepository {
     categories: Category[] = [];
