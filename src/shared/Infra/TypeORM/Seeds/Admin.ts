@@ -10,7 +10,7 @@ async function create() {
     const password = await hash("admin", 8);
 
     await connection.query(
-        `INSERT INTO USERS (id, name, email, password, "isAdmin", create_at, driver_license)
+        `INSERT INTO USERS (id, name, email, password, "isAdmin", created_at, driver_license)
                      VALUES('${id}', 'admin', 'admin@rentaec.com.br', '${password}', true, 'now()', 'XXXXXXX')
         `
     );
