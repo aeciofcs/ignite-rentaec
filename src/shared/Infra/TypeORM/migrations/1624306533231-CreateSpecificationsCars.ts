@@ -33,7 +33,7 @@ export class CreateSpecificationsCars1624306533231
             "specifitaions_cars",
             new TableForeignKey({
                 name: "FKSpecificationCar",
-                referencedTableName: "specification",
+                referencedTableName: "specifications",
                 referencedColumnNames: ["id"],
                 columnNames: ["specification_id"],
                 onDelete: "SET NULL",
@@ -57,11 +57,11 @@ export class CreateSpecificationsCars1624306533231
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropForeignKey(
             "specifications_cars",
-            "FKSpecificationCar"
+            "FKCarSpecificationCar"
         );
         await queryRunner.dropForeignKey(
             "specifications_cars",
-            "FKCarSpecification"
+            "FKSpecification"
         );
         await queryRunner.dropTable("specifications_cars");
     }
