@@ -54,6 +54,10 @@ class SpecificationsRepository implements ISpecificationsRepository {
 
         return specification;
     }
+
+    async findByIds(ids: string): Promise<Specification[]> {
+        throw new Error("Method not implemented.");
+    }
 }
 
 export { SpecificationsRepository };
