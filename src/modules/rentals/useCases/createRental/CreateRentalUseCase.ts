@@ -1,11 +1,7 @@
-import dayjs from "dayjs";
-import utc from "dayjs/plugin/utc";
-
 import { Rental } from "@modules/rentals/Infra/TypeORM/Entities/Rental";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
+import { IDateProvider } from "@shared/container/Providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
-
-dayjs.extend(utc);
 
 interface IRequest {
     car_id: string;
@@ -14,7 +10,10 @@ interface IRequest {
 }
 
 class CreateRentalUseCase {
-    constructor(private rentalsRepository: IRentalsRepository) {}
+    constructor(
+        private rentalsRepository: IRentalsRepository,
+        private dateProvider: IDateProvider
+    ) {}
 
     async execute({
         car_id,
@@ -26,25 +25,25 @@ class CreateRentalUseCase {
         const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(
             car_id
         );
+
         if (carUnavailable) {
             throw new AppError("Car is unavailable!");
         }
+
         const rentalOpenToUser = await this.rentalsRepository.findOpenRentalByUser(
             user_id
         );
+
         if (rentalOpenToUser) {
             throw new AppError("There's a rental in progress for user!!");
         }
 
-        const expectedReturnDateFormat = dayjs(expected_return_date)
-            .utc()
-            .local()
-            .format();
-        const dateNow = dayjs().utc().local().format();
+        const expectedReturnDateFormat = this.dateProvider.convertToUTC(
+            expected_return_date
+        );
+        const dateNow = this.dateProvider.compareInHours(expected_return_date);
 
-        const compare = dayjs(expectedReturnDateFormat).diff(dateNow, "hours");
-
-        // console.log("compare date", compare);
+        const compare = 12;
 
         if (compare < minimumHours) {
             throw new AppError("Invalid return time!");
