@@ -38,12 +38,10 @@ class CreateRentalUseCase {
             throw new AppError("There's a rental in progress for user!!");
         }
 
-        const expectedReturnDateFormat = this.dateProvider.convertToUTC(
+        const compare = this.dateProvider.compareInHours(
+            this.dateProvider.dateNow(),
             expected_return_date
         );
-        const dateNow = this.dateProvider.compareInHours(expected_return_date);
-
-        const compare = 12;
 
         if (compare < minimumHours) {
             throw new AppError("Invalid return time!");
