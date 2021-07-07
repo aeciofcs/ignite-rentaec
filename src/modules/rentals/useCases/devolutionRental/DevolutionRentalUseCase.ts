@@ -1,4 +1,4 @@
-import { inject } from "tsyringe";
+import { inject, injectable } from "tsyringe";
 
 import { ICarsRepository } from "@modules/cars/repositories/ICarsRepository";
 import { Rental } from "@modules/rentals/Infra/TypeORM/Entities/Rental";
@@ -11,6 +11,7 @@ interface IRequest {
     user_id: string;
 }
 
+@injectable()
 class DevolutionRentalUseCase {
     constructor(
         @inject("RentalsRepository")
@@ -26,7 +27,7 @@ class DevolutionRentalUseCase {
     async execute({ id, user_id }: IRequest): Promise<Rental> {
         const rental = await this.rentalsRepository.findById(id);
         const minimum_daily = 1;
-        const car = await this.carsRepository.findById(id);
+        const car = await this.carsRepository.findById(rental.car_id);
 
         if (!rental) {
             throw new AppError("Rental does not exists! ");
@@ -38,17 +39,19 @@ class DevolutionRentalUseCase {
             this.dateProvider.dateNow()
         );
 
+        console.log(`Daily antes  : ${daily}`);
         // Se a diaria for menor que 24h, cobra-se a diaria minima, que é 1 dia.
         if (daily <= 0) {
             daily = minimum_daily;
         }
 
         // Verifica se houve atraso na entrega e informa o total de dias para calculo da multa.
-        const delay = this.dateProvider.compareInDays(
-            this.dateProvider.dateNow(),
-            rental.expected_return_date
+        const delay = this.dateProvider.compareInHours(
+            rental.expected_return_date,
+            this.dateProvider.dateNow()
         );
 
+        console.log(`Daily : ${daily}`, `Delay : ${delay} `);
         let total = 0;
 
         // Calcula a multa baseado em quantos dias teve de atraso.
