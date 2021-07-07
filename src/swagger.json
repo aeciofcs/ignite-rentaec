@@ -197,6 +197,34 @@
                     }
                 }
             }
+        },
+
+        "/cars": {
+            "post": {
+                "tags": ["Carros"],
+                "summary": "Criação de carro.",
+                "description": "Criação de um carro novo.",
+                "security": [
+                    { "bearerAuth": [] }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/Car"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": { 
+                        "description": "Carro criado com sucesso." 
+                    },
+                    "400": {
+                        "description": "Carro já existe! "
+                    }
+                }
+            }
         }
     },
 
@@ -212,6 +240,7 @@
                 }
             }
         },
+
         "User": {
             "type": "object",
             "properties": {
@@ -234,6 +263,33 @@
                 },
                 "isAdmin": {
                     "type": "boolean"
+                }
+            }
+        },
+
+        "Car": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "daily_rate": {
+                    "type": "number"
+                },
+                "license_plate": {
+                    "type": "string"
+                },
+                "fine_amount": {
+                    "type": "number"
+                },
+                "brand": {
+                    "type": "string"
+                },
+                "category_id": {
+                    "type": "string"
                 }
             }
         }
