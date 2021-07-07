@@ -14,6 +14,9 @@
                 "tags": ["Categoria"],
                 "summary": "Criar uma categoria",
                 "description": "Criar uma nova categoria",
+                "security": [
+                    { "bearerAuth": [] }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -79,6 +82,9 @@
                 "tags": ["Categoria"],
                 "summary": "Upload de Categoria.",
                 "description": "Realiza upload de um arquivo contendo categorias para ser importado dentro do APP.",
+                "security": [
+                    { "bearerAuth": [] }
+                ],
                 "requestBody":{
                     "content":{
                         "multipart/form-data": {
@@ -107,6 +113,9 @@
                 "tags":["Especificação"],
                 "summary":"Cria um Especificação",
                 "description":"Criar uma nova Especificação",
+                "security": [
+                    { "bearerAuth": [] }
+                ],
                 "requestBody":{
                     "content":{
                         "application/json":{
@@ -122,6 +131,39 @@
                     },
                     "500":{
                         "description":"Specification already exists."
+                    }
+                }
+            }
+        },
+
+        "/sessions": {
+            "post": {
+                "tags": ["Session"],
+                "summary": "Autenticação do usuário.",
+                "description": "Autenticação do usuário.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Sucesso."
+                    },
+                    "400": {
+                        "description": "Email ou Password incorreto."
                     }
                 }
             }
@@ -193,6 +235,16 @@
                 "isAdmin": {
                     "type": "boolean"
                 }
+            }
+        }
+    },
+
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
             }
         }
     }
