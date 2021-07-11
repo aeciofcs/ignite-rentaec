@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/30</span>
+                <span class='fraction'>30/30</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
+                <span class='fraction'>3/3</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
                 <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/30</span>
+                <span class='fraction'>30/30</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -94,26 +94,26 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -123,27 +123,27 @@ import { container } from "tsyringe";
 import { CreateUserUseCase } from "./CreateUserUseCase";
 &nbsp;
 class CreateUserController {
-<span class="fstat-no" title="function not covered" >    async handle(request: Request, response: Response): Promise&lt;Response&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        const {</span>
-<span class="cstat-no" title="statement not covered" >            name,</span>
-<span class="cstat-no" title="statement not covered" >            // username,</span>
-<span class="cstat-no" title="statement not covered" >            email,</span>
-<span class="cstat-no" title="statement not covered" >            password,</span>
-<span class="cstat-no" title="statement not covered" >            driver_license,</span>
-<span class="cstat-no" title="statement not covered" >        } = request.body;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        const createUserUseCase = container.resolve(CreateUserUseCase);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        await createUserUseCase.execute({</span>
-<span class="cstat-no" title="statement not covered" >            name,</span>
-<span class="cstat-no" title="statement not covered" >            // username,</span>
-<span class="cstat-no" title="statement not covered" >            email,</span>
-<span class="cstat-no" title="statement not covered" >            password,</span>
-<span class="cstat-no" title="statement not covered" >            driver_license,</span>
-<span class="cstat-no" title="statement not covered" >        });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        return response.status(201).send();</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+    async handle(request: Request, response: Response): Promise&lt;Response&gt; {
+        const {
+            name,
+            // username,
+            email,
+            password,
+            driver_license,
+        } = request.body;
+&nbsp;
+        const createUserUseCase = container.resolve(CreateUserUseCase);
+&nbsp;
+        await createUserUseCase.execute({
+            name,
+            // username,
+            email,
+            password,
+            driver_license,
+        });
+&nbsp;
+        return response.status(201).send();
+    }
 }
 &nbsp;
 export { CreateUserController };
@@ -154,7 +154,7 @@ export { CreateUserController };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jul 09 2021 23:42:35 GMT-0300 (GMT-03:00)
+                at Sun Jul 11 2021 02:06:51 GMT-0300 (GMT-03:00)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

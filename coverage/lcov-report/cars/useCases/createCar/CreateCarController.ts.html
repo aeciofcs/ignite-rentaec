@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.41% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/34</span>
+                <span class='fraction'>34/34</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
+                <span class='fraction'>3/3</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
                 <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
-                <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">29.41% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/34</span>
+                <span class='fraction'>34/34</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -98,30 +98,30 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -131,31 +131,31 @@ import { container } from "tsyringe";
 import { CreateCarUseCase } from "./CreateCarUseCase";
 &nbsp;
 class CreateCarController {
-<span class="fstat-no" title="function not covered" >    async handle(request: Request, response: Response): Promise&lt;Response&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        const {</span>
-<span class="cstat-no" title="statement not covered" >            name,</span>
-<span class="cstat-no" title="statement not covered" >            description,</span>
-<span class="cstat-no" title="statement not covered" >            daily_rate,</span>
-<span class="cstat-no" title="statement not covered" >            license_plate,</span>
-<span class="cstat-no" title="statement not covered" >            fine_amount,</span>
-<span class="cstat-no" title="statement not covered" >            brand,</span>
-<span class="cstat-no" title="statement not covered" >            category_id,</span>
-<span class="cstat-no" title="statement not covered" >        } = request.body;</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        const createCarUseCase = container.resolve(CreateCarUseCase);</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        const car = await createCarUseCase.execute({</span>
-<span class="cstat-no" title="statement not covered" >            name,</span>
-<span class="cstat-no" title="statement not covered" >            description,</span>
-<span class="cstat-no" title="statement not covered" >            daily_rate,</span>
-<span class="cstat-no" title="statement not covered" >            license_plate,</span>
-<span class="cstat-no" title="statement not covered" >            fine_amount,</span>
-<span class="cstat-no" title="statement not covered" >            brand,</span>
-<span class="cstat-no" title="statement not covered" >            category_id,</span>
-<span class="cstat-no" title="statement not covered" >        });</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >        return response.status(201).json(car);</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+    async handle(request: Request, response: Response): Promise&lt;Response&gt; {
+        const {
+            name,
+            description,
+            daily_rate,
+            license_plate,
+            fine_amount,
+            brand,
+            category_id,
+        } = request.body;
+&nbsp;
+        const createCarUseCase = container.resolve(CreateCarUseCase);
+&nbsp;
+        const car = await createCarUseCase.execute({
+            name,
+            description,
+            daily_rate,
+            license_plate,
+            fine_amount,
+            brand,
+            category_id,
+        });
+&nbsp;
+        return response.status(201).json(car);
+    }
 }
 &nbsp;
 export { CreateCarController };
@@ -166,7 +166,7 @@ export { CreateCarController };
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Fri Jul 09 2021 23:42:35 GMT-0300 (GMT-03:00)
+                at Sun Jul 11 2021 02:06:51 GMT-0300 (GMT-03:00)
             </div>
         </div>
         <script src="../../../prettify.js"></script>
