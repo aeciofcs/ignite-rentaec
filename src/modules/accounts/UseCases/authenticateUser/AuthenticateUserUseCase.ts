@@ -47,13 +47,13 @@ class AuthenticateUserUseCase {
         } = Auth;
 
         if (!user) {
-            throw new AppError("Email ou Senha incorretos!");
+            throw new AppError("Email incorreto!");
         }
 
         // senha esta correta
         const passwordMath = await compare(password, user.password);
         if (!passwordMath) {
-            throw new AppError("Email ou Senha incorretos!");
+            throw new AppError("Senha incorreta!");
         }
 
         // gerar JsonWebToken = rentaec

@@ -50,13 +50,13 @@ describe("Authenticate User", () => {
                 email: "false@email.com",
                 password: "1234",
             })
-        ).rejects.toEqual(new AppError("Email ou Senha incorretos!"));
+        ).rejects.toEqual(new AppError("Email incorreto!"));
     });
 
     it("should not be able to authenticate with incorret password", async () => {
         const user: ICreateUserDTO = {
             driver_license: "9999",
-            email: "user.user.com",
+            email: "user@user.com.br",
             password: "1234",
             name: "User Test Error",
         };
@@ -68,6 +68,6 @@ describe("Authenticate User", () => {
                 email: user.email,
                 password: "incorrectPassword",
             })
-        ).rejects.toEqual(new AppError("Email ou Senha incorretos!"));
+        ).rejects.toEqual(new AppError("Senha incorreta!"));
     });
 });
